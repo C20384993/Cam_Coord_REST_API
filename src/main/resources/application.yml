@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name : recording-service
+    
+  datasource:
+    url : ${datasource.url}
+    username : ${datasource.username}
+    password : ${datasource.password}
+  jpa:
+    properties:
+      hibernate:
+        dialect: ${datasource.dialect}
+        connection:
+          characterEncoding: UTF-8
+          CharSet: UTF-8
+          useUnicode: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
