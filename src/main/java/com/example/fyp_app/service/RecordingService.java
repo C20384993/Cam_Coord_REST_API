@@ -9,12 +9,12 @@ import com.example.fyp_app.entity.Recording;
 public interface RecordingService{
 	boolean create(Recording recording);
 	
-	Recording getByID(int fileid);
+	Recording getByID(int recordingid);
   
 	List<Recording> getAll();
   
 	boolean update(Recording recording);
   
-	boolean delete(int fileid);
+	boolean delete(int recordingid);
 
 }

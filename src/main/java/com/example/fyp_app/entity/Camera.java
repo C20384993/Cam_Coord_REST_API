@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 //Entity annotation defines class as being mapped to a table.
 @Entity
-@Table(name="Cameras")
+@Table(name="Camera")
 public class Camera {
 	
 	@Id//Marks the primary key of the table.
@@ -19,8 +19,8 @@ public class Camera {
 	@Column(name = "cameraname")
 	private String cameraname;
 	
-	@Column(name = "camerausername")
-	private String camerausername;
+	@Column(name = "camusername")
+	private String camusername;
 	
 	@Column(name = "campassword")
 	private String campassword;
@@ -30,7 +30,7 @@ public class Camera {
 
 	
 	public int getCameraid() {
-        return userid;
+        return cameraid;
     }
 	
 	public void setCameraid(int cameraid) {
@@ -61,7 +61,7 @@ public class Camera {
     }
 	
 	public void setCamerausername(String camerausername) {
-        this.camerausername = camerausername;
+        this.camusername = camerausername;
     }
 	
 	

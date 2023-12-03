@@ -9,8 +9,8 @@ import jakarta.persistence.Table;
 
 //Entity annotation defines class as being mapped to a table.
 @Entity
-@Table(name="Users")
-public class User {
+@Table(name="Account")
+public class Account {
 	
 	@Id//Marks the primary key of the table.
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//Primary key auto-increments.

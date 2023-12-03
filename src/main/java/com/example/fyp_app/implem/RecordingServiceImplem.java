@@ -16,11 +16,11 @@ public class RecordingServiceImplem implements RecordingService{
 	@Autowired RecordingRepository recordingRepository; //Autowired auto injects dependent beans into associated refs of a POJO class.
 	
     @Override
-    public Recording getByID(int fileid) {
+    public Recording getByID(int recordingid) {
         //Pass an ID, create object for it, return all data from entry with that FileID.
     	//The ID value is gotten from the URL.
-    	Recording f = recordingRepository.findById(fileid).orElse(null);
-        return f;
+    	Recording r = recordingRepository.findById(recordingid).orElse(null);
+        return r;
     }
 
 	@Override
@@ -38,21 +38,19 @@ public class RecordingServiceImplem implements RecordingService{
 	}
 
 	@Override
-	public boolean delete(int fileid) {
+	public boolean delete(int recordingid) {
 		// DELETE FROM Files WHERE FileID = n;
-		recordingRepository.deleteById(fileid);
+		recordingRepository.deleteById(recordingid);
 		return true;
 	}
 
 	@Override
 	public boolean create(@RequestBody Recording recording) {
 		// INSERT INTO Files(columns) VALUES (values) 
-		System.out.println("filename: "+recording.getFilename());
-		System.out.println("creation: "+recording.getCreationdate());
+		System.out.println("recordingname: "+recording.getRecordingname());
 		System.out.println("userid: "+recording.getUserid());
 		System.out.println("filepath: "+recording.getRelativefilepath());
-		System.out.println("camerasid: "+recording.getCamerasid());
-		//Convert creationdate to datetime format.
+		System.out.println("camerasid: "+recording.getCameraid());
 		recordingRepository.save(recording);
 		return true;
 	}

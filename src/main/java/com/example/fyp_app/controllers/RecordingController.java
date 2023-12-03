@@ -14,7 +14,7 @@ import com.example.fyp_app.entity.Recording;
 import com.example.fyp_app.service.RecordingService;
 
 @RestController
-@RequestMapping(value= "/Files")
+@RequestMapping(value= "/Recordings")
 //Controller classes can take HTTP requests.
 //Mapping URL to controller: 8080/api/Files
 //Any request with that ending will be handled by this controller. Controller passes it to Implem file to

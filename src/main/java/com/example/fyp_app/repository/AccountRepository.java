@@ -5,11 +5,11 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.fyp_app.entity.User;
+import com.example.fyp_app.entity.Account;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer>{
+public interface AccountRepository extends JpaRepository<Account, Integer>{
 
-	Optional<User> findByUsername(String username);
+	Optional<Account> findByUsername(String username);
 
 }

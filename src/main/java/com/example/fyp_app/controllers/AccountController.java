@@ -10,46 +10,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.fyp_app.entity.User;
-import com.example.fyp_app.service.UserService;
+import com.example.fyp_app.entity.Account;
+import com.example.fyp_app.service.AccountService;
 
 @RestController
-@RequestMapping(value= "/Users")
-public class UserController {
+@RequestMapping(value= "/Accounts")
+public class AccountController {
 	
-    @Autowired UserService userService;
+    @Autowired AccountService accountService;
     
     @PostMapping
-    public boolean create(@RequestBody User user) {
+    public boolean create(@RequestBody Account account) {
     	System.out.println("Create controller");
-    	return userService.create(user);
+    	return accountService.create(account);
     }
     
     @GetMapping
-    public List<User> getAll() {
-    	return userService.getAll();
+    public List<Account> getAll() {
+    	return accountService.getAll();
     }
 
     //Map any URL request with "/id" to this method.
     @GetMapping("/id")
-    public User getById(@RequestParam(value = "id", defaultValue = "0") int id) {
-    	return userService.getById(id);
+    public Account getById(@RequestParam(value = "id", defaultValue = "0") int id) {
+    	return accountService.getById(id);
     }
     
     //Map any URL request with "/username" to this method.
     @GetMapping("/username")
-    public User getByUsername(@RequestParam(value = "username", defaultValue = "0") String username) {
-    	return userService.getByUsername(username);
+    public Account getByUsername(@RequestParam(value = "username", defaultValue = "0") String username) {
+    	return accountService.getByUsername(username);
     }
     
     @PutMapping
-    public boolean update(@RequestBody User user) {
-    	return userService.update(user);
+    public boolean update(@RequestBody Account account) {
+    	return accountService.update(account);
     }
    
     @DeleteMapping
     public boolean delete(@RequestParam int id) {
-    	return userService.delete(id);
+    	return accountService.delete(id);
     }
 
 }
