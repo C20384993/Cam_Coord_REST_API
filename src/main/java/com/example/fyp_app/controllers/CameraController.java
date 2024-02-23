@@ -20,31 +20,41 @@ public class CameraController {
 	
     @Autowired CameraService cameraService;
     
-    @PostMapping
-    public boolean create(@RequestBody Camera camera) {
-    	System.out.println("Create controller");
-    	return cameraService.create(camera);
-    }
-    
-    @GetMapping
-    public List<Camera> getAll() {
-    	return cameraService.getAll();
+    @PostMapping("/create")
+    public Camera createCamera(@RequestBody Camera camera) {
+    	System.out.println("");
+    	System.out.println("Create Cam controller");
+    	System.out.println("cameraid="+camera.getCameraid());
+		System.out.println("userid="+camera.getUserid());
+		System.out.println("customname="+camera.getCustomname());
+		System.out.println("camusername="+camera.getCamusername());
+		System.out.println("campassword="+camera.getCampassword());
+		System.out.println("rtspurl="+camera.getRtspurl());
+		System.out.println("streampath="+camera.getStreampath());
+    	return cameraService.createCamera(camera);
     }
 
-    //Map any URL request with "/id" to this method.
-    @GetMapping("/id")
-    public Camera getById(@RequestParam(value = "id", defaultValue = "1") int id) {
-    	return cameraService.getByID(id);
+    @GetMapping("/getbyid")
+    public Camera getCameraBySerialNumber(@RequestParam(value = "id", defaultValue = "1") int cameraid) {
+    	return cameraService.getCameraById(cameraid);
     }
     
-    @PutMapping
-    public boolean update(@RequestBody Camera camera) {
-    	return cameraService.update(camera);
+    @PutMapping("/update")
+    public Camera updateCamera(@RequestBody Camera camera) {
+    	System.out.println("cameraid="+camera.getCameraid());
+		System.out.println("userid="+camera.getUserid());
+		System.out.println("customname="+camera.getCustomname());
+    	return cameraService.updateCamera(camera);
     }
    
-    @DeleteMapping
-    public boolean delete(@RequestParam int id) {
-    	return cameraService.delete(id);
+    @DeleteMapping("/delete")
+    public boolean deleteCamera(@RequestParam int cameraid) {
+    	return cameraService.deleteCamera(cameraid);
+    }
+    
+    @GetMapping("/findall")
+    public List<Camera> findAllByUserId(@RequestParam(value = "userid") int userid) {
+        return cameraService.findAllByUserid(userid);
     }
 
 }

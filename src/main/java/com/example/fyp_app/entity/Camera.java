@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-//Entity annotation defines class as being mapped to a table.
 @Entity
 @Table(name="Camera")
 public class Camera {
@@ -16,8 +15,8 @@ public class Camera {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//Primary key auto-increments.
     private int cameraid;
 	
-	@Column(name = "cameraname")
-	private String cameraname;
+	@Column(name = "customname")
+	private String customname;
 	
 	@Column(name = "camusername")
 	private String camusername;
@@ -25,52 +24,70 @@ public class Camera {
 	@Column(name = "campassword")
 	private String campassword;
 	
+	@Column(name = "rtspurl")
+	private String rtspurl;
+	
+	@Column(name = "streampath")
+	private String streampath;
+	
 	@Column(name = "userid")
 	private int userid;
+	
 
-	
 	public int getCameraid() {
-        return cameraid;
-    }
-	
+		return cameraid;
+	}
+
 	public void setCameraid(int cameraid) {
-        this.cameraid = cameraid;
-    }
-	
-	
-	public String getCameraname() {
-        return cameraname;
-    }
-	
-	public void setCameraname(String cameraname) {
-        this.cameraname = cameraname;
-    }
-	
-	
+		this.cameraid = cameraid;
+	}
+
+	public String getCustomname() {
+		return customname;
+	}
+
+	public void setCustomname(String customname) {
+		this.customname = customname;
+	}
+
+	public String getCamusername() {
+		return camusername;
+	}
+
+	public void setCamusername(String camusername) {
+		this.camusername = camusername;
+	}
+
 	public String getCampassword() {
-        return campassword;
-    }
-	
+		return campassword;
+	}
+
 	public void setCampassword(String campassword) {
-        this.campassword = campassword;
-    }
-	
-	
-	public String getCamerausername() {
-        return cameraname;
-    }
-	
-	public void setCamerausername(String camerausername) {
-        this.camusername = camerausername;
-    }
-	
-	
+		this.campassword = campassword;
+	}
+
+	public String getRtspurl() {
+		return rtspurl;
+	}
+
+	public void setRtspurl(String rtspurl) {
+		this.rtspurl = rtspurl;
+	}
+
+	public String getStreampath() {
+		return streampath;
+	}
+
+	public void setStreampath(String streampath) {
+		this.streampath = streampath;
+	}
+
 	public int getUserid() {
-        return userid;
-    }
-	
+		return userid;
+	}
+
 	public void setUserid(int userid) {
-        this.userid = userid;
-    }
+		this.userid = userid;
+	}
 	
 }

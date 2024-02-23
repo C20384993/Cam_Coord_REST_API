@@ -15,39 +15,34 @@ import com.example.fyp_app.service.RecordingService;
 
 @RestController
 @RequestMapping(value= "/Recordings")
-//Controller classes can take HTTP requests.
-//Mapping URL to controller: 8080/api/Files
-//Any request with that ending will be handled by this controller. Controller passes it to Implem file to
-//actually perform operations.
 public class RecordingController {
 
     @Autowired RecordingService recordingService;
     
-    @PostMapping
-    public boolean create(@RequestBody Recording recording) {
+    @PostMapping("/create")
+    public Recording createRecording(@RequestBody Recording recording) {
     	System.out.println("Create controller");
-    	return recordingService.create(recording);
-    }
-    
-    @GetMapping
-    public List<Recording> getAll() {
-    	return recordingService.getAll();
+    	return recordingService.createRecording(recording);
     }
 
-    //Map any URL request with "/id" to this method.
-    @GetMapping("/id")
-    public Recording getById(@RequestParam(value = "id", defaultValue = "1") int id) {
-    	return recordingService.getByID(id);
+    @GetMapping("/getbyid")
+    public Recording getRecordingById(@RequestParam(value = "id", defaultValue = "1") int recordingid) {
+    	return recordingService.getRecordingById(recordingid);
     }
     
-    @PutMapping
-    public boolean update(@RequestBody Recording recording) {
-    	return recordingService.update(recording);
+    @PutMapping("/update")
+    public Recording updateRecording(@RequestBody Recording recording) {
+    	return recordingService.updateRecording(recording);
     }
    
-    @DeleteMapping
-    public boolean delete(@RequestParam int id) {
-    	return recordingService.delete(id);
+    @DeleteMapping("/delete")
+    public boolean deleteRecording(@RequestParam int recordingid) {
+    	return recordingService.deleteRecording(recordingid);
+    }
+    
+    @GetMapping("/findall")
+    public List<Recording> findByUserId(@RequestParam(value = "userid") int userid) {
+        return recordingService.findAllByUserid(userid);
     }
 
 }

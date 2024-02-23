@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.fyp_app.entity.Account;
 
+//extends JpaRepository<Entity, PK Data Type>
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 

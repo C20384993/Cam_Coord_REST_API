@@ -5,14 +5,15 @@ import java.util.List;
 import com.example.fyp_app.entity.Camera;
 
 public interface CameraService {
-	boolean create(Camera camera);
 	
-	Camera getByID(int cameraid);
+	Camera createCamera(Camera camera); //Create/Add a camera entry
+	
+	Camera getCameraById(int cameraid); //Read/Get by Primary Key
   
-	List<Camera> getAll();
+	Camera updateCamera(Camera camera); //Update/Edit camera entry
   
-	boolean update(Camera camera);
-  
-	boolean delete(int cameraid);
+	boolean deleteCamera(int cameraid); //Delete camera entry
+	
+	List<Camera> findAllByUserid(int userid); //Read/Get all camera entries for a user
 
 }

@@ -1,20 +1,19 @@
 package com.example.fyp_app.service;
 
-import java.util.List;
-
 import com.example.fyp_app.entity.Account;
 
+//Where the business logic methods are defined, e.g. Recording getByID.
+//Need to plan what methods will be needed for the app.
 public interface AccountService {
-	boolean create(Account user);
 	
-	Account getById(int userid);
+	Account createAccount(Account user); //Create/Add account
 	
-	Account getByUsername(String username);
-  
-	List<Account> getAll();
-  
-	boolean update(Account user);
-  
-	boolean delete(int userid);
+	Account getAccountById(int userid); //Read/Get account
+	
+	boolean updateAccount(Account user); //Update/Edit account
+	  
+	boolean deleteAccount(int userid); //Delete account
+	
+	Account getAccountByUsername(String username); //Read/Get account by username
 
 }

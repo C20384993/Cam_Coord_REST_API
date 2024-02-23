@@ -14,41 +14,60 @@ public class CameraServiceImplem implements CameraService{
 	@Autowired CameraRepository cameraRepository; //Autowired auto injects dependent beans into associated refs of a POJO class.
 
 	@Override
-	public boolean create(Camera camera) {
-		// INSERT INTO Files(columns) VALUES (values) 
-		//Convert creationdate to datetime format.
+	public Camera createCamera(Camera camera) {
 		cameraRepository.save(camera);
-		return true;
+		
+		Camera c = new Camera();
+		c.setCameraid(camera.getCameraid());
+		c.setCustomname(camera.getCustomname());
+		c.setCamusername(camera.getCamusername());
+		c.setCampassword(camera.getCampassword());
+		c.setRtspurl(camera.getRtspurl());
+		c.setStreampath(camera.getStreampath());
+		c.setUserid(camera.getUserid());
+		return c;
 	}
 
 	@Override
-	public Camera getByID(int cameraid) {
-		//Pass an ID, create object for it, return all data from entry with that FileID.
-    	//The ID value is gotten from the URL.
-        //Recording f = new Recording();
-    	Camera c = cameraRepository.findById(cameraid).orElse(null);
+	public Camera getCameraById(int cameraid) {
+		Camera c = cameraRepository.findById(cameraid).orElse(null);
         return c;
 	}
 
 	@Override
-	public List<Camera> getAll() {
-		// SELECT * FROM Files
-		List<Camera> cameraList = cameraRepository.findAll();
-		return cameraList;
+	public Camera updateCamera(Camera camera) {
+		System.out.println("cameraid="+camera.getCameraid());
+		System.out.println("userid="+camera.getUserid());
+		System.out.println("customname="+camera.getCustomname());
+		
+		Camera c = new Camera();
+		c.setCameraid(camera.getCameraid());
+		c.setCustomname(camera.getCustomname());
+		c.setCamusername(camera.getCamusername());
+		c.setCampassword(camera.getCampassword());
+		c.setRtspurl(camera.getRtspurl());
+		c.setStreampath(camera.getStreampath());
+		c.setUserid(camera.getUserid());
+		
+		if(cameraRepository.existsById(camera.getCameraid())==true) {
+			cameraRepository.saveAndFlush(camera);
+			return c;
+		}
+		else {
+			return null;
+		}
 	}
 
 	@Override
-	public boolean update(Camera camera) {
-		// UPDATE Files SET Filename=... WHERE FileID = n;
-		cameraRepository.save(camera);
-		return true;
-	}
-
-	@Override
-	public boolean delete(int cameraid) {
-		// DELETE FROM Files WHERE FileID = n;
+	public boolean deleteCamera(int cameraid) {
 		cameraRepository.deleteById(cameraid);
 		return true;
 	}
 
+	@Override
+	public List<Camera> findAllByUserid(int userid) {
+		List<Camera> c = cameraRepository.findAllByUserid(userid);
+        return c;
+	}
+	
 }
