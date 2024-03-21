@@ -21,7 +21,6 @@ public class RecordingController {
     
     @PostMapping("/create")
     public Recording createRecording(@RequestBody Recording recording) {
-    	System.out.println("Create controller");
     	return recordingService.createRecording(recording);
     }
 

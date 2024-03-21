@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+//Data Model for Account
 //Entity annotation defines class as being mapped to a table.
 @Entity
 @Table(name="Account")

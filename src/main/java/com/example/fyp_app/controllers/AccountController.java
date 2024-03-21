@@ -24,16 +24,12 @@ public class AccountController {
     
     @PostMapping("/create")
     public Account createAccount(@RequestBody Account account) {
-    	System.out.println("Create controller");
-    	System.out.println("username="+account.getUsername());
-    	System.out.println("password="+account.getPassword());
     	return accountService.createAccount(account);
     }
     
     //Map any URL request with "/id" to this method, e.g. /Accounts/id
     @GetMapping("/getbyid")
     public Account getAccountById(@RequestParam(value = "id", defaultValue = "0") int id) {
-    	System.out.println("userid="+id);
     	return accountService.getAccountById(id);
     }
     
@@ -43,7 +39,7 @@ public class AccountController {
     }
     
     @PutMapping("/update")
-    public boolean updateAccount(@RequestBody Account account) {
+    public Account updateAccount(@RequestBody Account account) {
     	return accountService.updateAccount(account);
     }
    

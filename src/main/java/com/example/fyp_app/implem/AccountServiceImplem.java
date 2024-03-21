@@ -3,7 +3,6 @@ package com.example.fyp_app.implem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.fyp_app.entity.Account;
-import com.example.fyp_app.entity.Camera;
 import com.example.fyp_app.repository.AccountRepository;
 import com.example.fyp_app.service.AccountService;
 
@@ -28,15 +27,18 @@ public class AccountServiceImplem implements AccountService{
 
 	@Override
 	public Account getAccountById(int userid) {
-		System.out.println("userid="+userid);
 		Account u = accountRepository.findById(userid).orElse(null);
         return u;
 	}
 
 	@Override
-	public boolean updateAccount(Account user) {
+	public Account updateAccount(Account user) {
 		accountRepository.save(user);
-		return true;
+		Account a = new Account();
+		a.setUserid(user.getUserid());
+		a.setUsername(user.getUsername());
+		a.setPassword(user.getPassword());
+		return a;
 	}
 
 	@Override
@@ -48,9 +50,13 @@ public class AccountServiceImplem implements AccountService{
 	@Override
 	public Account getAccountByUsername(String username) {
 		Account u = accountRepository.findByUsername(username).orElse(null);
+		if(u == null) {
+			Account emptyAccount = new Account();
+			emptyAccount.setUserid(0);
+			emptyAccount.setUsername("");
+			emptyAccount.setPassword("");
+			return emptyAccount;
+		}
 		return u;
 	}
-	
-	
-	
 }

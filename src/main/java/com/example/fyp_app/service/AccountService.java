@@ -10,7 +10,7 @@ public interface AccountService {
 	
 	Account getAccountById(int userid); //Read/Get account
 	
-	boolean updateAccount(Account user); //Update/Edit account
+	Account updateAccount(Account user); //Update/Edit account
 	  
 	boolean deleteAccount(int userid); //Delete account
 	

@@ -22,15 +22,6 @@ public class CameraController {
     
     @PostMapping("/create")
     public Camera createCamera(@RequestBody Camera camera) {
-    	System.out.println("");
-    	System.out.println("Create Cam controller");
-    	System.out.println("cameraid="+camera.getCameraid());
-		System.out.println("userid="+camera.getUserid());
-		System.out.println("customname="+camera.getCustomname());
-		System.out.println("camusername="+camera.getCamusername());
-		System.out.println("campassword="+camera.getCampassword());
-		System.out.println("rtspurl="+camera.getRtspurl());
-		System.out.println("streampath="+camera.getStreampath());
     	return cameraService.createCamera(camera);
     }
 
@@ -41,9 +32,6 @@ public class CameraController {
     
     @PutMapping("/update")
     public Camera updateCamera(@RequestBody Camera camera) {
-    	System.out.println("cameraid="+camera.getCameraid());
-		System.out.println("userid="+camera.getUserid());
-		System.out.println("customname="+camera.getCustomname());
     	return cameraService.updateCamera(camera);
     }
    

@@ -3,7 +3,6 @@ package com.example.fyp_app.implem;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.fyp_app.entity.Camera;
 import com.example.fyp_app.repository.CameraRepository;
 import com.example.fyp_app.service.CameraService;
@@ -36,10 +35,6 @@ public class CameraServiceImplem implements CameraService{
 
 	@Override
 	public Camera updateCamera(Camera camera) {
-		System.out.println("cameraid="+camera.getCameraid());
-		System.out.println("userid="+camera.getUserid());
-		System.out.println("customname="+camera.getCustomname());
-		
 		Camera c = new Camera();
 		c.setCameraid(camera.getCameraid());
 		c.setCustomname(camera.getCustomname());
