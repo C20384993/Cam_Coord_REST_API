@@ -22,6 +22,7 @@ public class AccountServiceImplem implements AccountService{
 		a.setUserid(user.getUserid());
 		a.setUsername(user.getUsername());
 		a.setPassword(user.getPassword());
+		a.setSalt(user.getSalt());
 		return a;
 	}
 
@@ -38,6 +39,7 @@ public class AccountServiceImplem implements AccountService{
 		a.setUserid(user.getUserid());
 		a.setUsername(user.getUsername());
 		a.setPassword(user.getPassword());
+		a.setSalt(user.getSalt());
 		return a;
 	}
 
@@ -55,6 +57,7 @@ public class AccountServiceImplem implements AccountService{
 			emptyAccount.setUserid(0);
 			emptyAccount.setUsername("");
 			emptyAccount.setPassword("");
+			emptyAccount.setSalt("");
 			return emptyAccount;
 		}
 		return u;
